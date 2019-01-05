@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
+
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #233237;
+  background: #fafafa;
+  font-weight: 300;
+}
+
+.heading {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 3.25rem;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.sub {
+  border-top: solid thin #984b43;
+  padding-top: 10px;
+  margin-top: 10px;
+  font-size: 2rem;
+  font-weight: normal;
+  text-align: right;
+  color: #a88436;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.details > div {
+  display: flex;
+}
+
+.card-container {
+  margin: -60px 0;
+  min-height: 340px;
+}
+
+.card-container:first-child {
+  margin-top: 0px;
+}
+
+.card-container:last-child {
+  margin-bottom: 0px;
+}
+
+.card-container:nth-child(odd) {
+  clip-path: polygon(0% 0%, 100% 50px, 100% calc(100% - 50px), 0% 100%);
+}
+
+.card-container:nth-child(even) {
+  clip-path: polygon(0% 50px, 100% 0%, 100% 100%, 0% calc(100% - 50px));
+}
+
+.card-container:nth-child(even) .card {
+  flex-direction: row-reverse;
+}
+
+.card-container:nth-child(3n + 1) {
+  background: #eac67a;
+}
+
+.card-container:nth-child(3n + 2) {
+  color: #ffffff;
+  background: #984b43;
+}
+
+.card-container:nth-child(3n + 1) ::placeholder {
+  color: #555;
+}
+
+.card-container:nth-child(3n + 2) ::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.card-container:nth-child(3n) ::placeholder {
+  color: #888;
+}
+
+.details {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.card-container:nth-child(3n + 2) .details {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card-container:nth-child(3n + 2) .register {
+  border-left: solid thin #eac67a;
+}
+
+.card {
+  padding: 60px;
+  display: flex;
+}
+
+.sport-name {
+  font-size: 3rem;
+}
+
+.buy {
+  margin: 15px 100px;
+}
+
+.cost {
+  min-width: 130px;
+  padding-right: 20px;
+  white-space: nowrap;
+}
+
+.cost > div:first-child {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.cost > div:nth-child(2) {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.buy > div {
+  padding: 20px;
+  display: flex;
+}
+
+.register {
+  font-family: 'Major Mono Display', monospace;
+  padding: 20px;
+  border: none;
+  border-left: solid thin #984b43;
+  background: none;
+  transition: all ease 0.2s;
+}
+
+.register:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.register:focus {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.details > div:first-child {
+  font-size: 1.2rem;
+  padding: 15px 5px 0;
+}
+
+.details > div:not(:first-child) {
+  padding: 2px 10px;
+  font-size: 0.9rem;
+}
+
+.details span {
+  padding-right: 5px;
+}
+
+.reg-form {
+  height: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.reg-form input {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  color: inherit;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.form-inputs {
+  padding-bottom: 100px;
+}
+
+.form-inputs div > div {
+  font-size: 0.8rem;
+}
+
+.contact-details {
+  padding: 0 3px;
+  position: relative;
+  max-height: 150px;
+  overflow: auto;
+}
+
+.input-name {
+  padding-top: 10px;
+}
+
+.reg-form .form-type {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.form-cost {
+  font-size: 0.8rem;
+  padding-bottom: 10px;
+}
+
+.card-container:nth-child(3n) .reg-form .form-sport {
+  border-color: #984b43;
+}
+
+.card-container:nth-child(3n + 1) .reg-form .form-sport {
+  border-color: #984b43;
+}
+
+.card-container:nth-child(3n + 2) .reg-form .form-sport {
+  border-color: #eac67a;
+}
+
+.reg-form .form-sport {
+  margin-right: 20px;
+  border-bottom: solid thin;
+  font-size: 2rem;
+}
+
+.form-inputs > div:first-child {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 5px -1px rgba(255, 255, 255, 0.7);
+}
+
+.contact-details input {
+  width: calc(100% / 3 - 20px);
+  margin-right: 4px;
+}
+
+.form-inputs {
+  width: 45%;
+}
+
+.form-inputs button {
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  top: 5px;
+  left: 2px;
+  position: relative;
+}
+
+.form-inputs .add-input-btn {
+  position: absolute;
+  top: 3px;
+  right: 11px;
+  left: auto;
+}
+
+.reg-form input[type=radio] {
+  width: auto;
+  margin: 10px 5px;
+}
+
+.reg-form label {
+  font-size: 0.8rem;
+}
+
+.form-inputs .register-btn {
+  font-size: 1rem;
+  font-family: 'Major Mono Display', monospace;
+  margin: 20px 0px;
+  padding: 10px 15px;
+  background:rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.form-inputs .team-size {
+  font-size: 0.8rem;
+}
+
+.container {
+  display: inline-block;
+  position: relative;
+  padding: 12px 12px 0;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  height: 15px;
+  width: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+  border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card-container:nth-child(3n + 1) .reg-form .container input:checked ~ .checkmark  {
+  background-color: #984b43;
+}
+
+.card-container:nth-child(3n + 2) .reg-form .container input:checked ~ .checkmark  {
+  background-color: #eac67a;
+}
+
+.card-container:nth-child(3n) .reg-form .container input:checked ~ .checkmark {
+  background-color: #984b43;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+ 	top: 4px;
+	left: 4px;
+	width: 6.5px;
+	height: 6.5px;
+	border-radius: 50%;
+	background: #fafafa;
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  padding: 30px;
+  font-size: 2.2rem;
+}
+
+.title-small {
+  font-size: 1.2rem;
+  margin: 30px 0 10px;
+  font-weight: 400;
+}
+
+.title-small ~ div {
+  font-size: 0.9rem;
+}
