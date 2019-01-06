@@ -1,89 +1,89 @@
 const data = [
   {
     sportName: 'Athletics',
-    cost: [{ name: 'Men', value: 3186 }, { name: 'Women', value: 2360 }]
+    cost: [{ name: 'Men', value: '3,300' }, { name: 'Women', value: '2,500' }]
   },
   {
     sportName: 'Badminton',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 7 }, { name: 'Women', size: 4 }],
-    cost: [{ name: 'Men', value: 2478 }, { name: 'Women', value: 1180 }]
+    cost: [{ name: 'Men', value: '2,600' }, { name: 'Women', value: '1,300' }]
   },
   {
     sportName: 'Basketball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 12 }, { name: 'Women', size: 12 }],
-    cost: [{ name: 'Men', value: 4248 }, { name: 'Women', value: 3540 }]
+    cost: [{ name: 'Men', value: '4,400' }, { name: 'Women', value: '3,700' }]
   },
   {
     sportName: 'Chess',
     sizeType: 'max',
     teamSize: [{ name: 'Combined', size: 5 }],
-    cost: [{ name: 'Combined', value: 1770 }]
+    cost: [{ name: 'Combined', value: '1,800' }]
   },
   {
     sportName: 'Cricket',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }],
-    cost: [{ name: 'Men', value: 6372 }]
+    cost: [{ name: 'Men', value: '6,600' }]
   },
   {
     sportName: 'Cross-Country',
     sizeType: 'exact',
     teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: 1062 }, { name: 'Women', value: 295 }]
+    cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }]
   },
   {
     sportName: 'Football',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }, { name: 'Women', size: 11 }],
-    cost: [{ name: 'Men', value: 6372 }, { name: 'Women', value: 3245 }]
+    cost: [{ name: 'Men', value: '6,600' }, { name: 'Women', value: '3,400' }]
   },
   {
     sportName: 'Hockey',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
-    cost: [{ name: 'Men', value: 5664 }]
+    cost: [{ name: 'Men', value: '5,900' }]
   },
   {
     sportName: 'Squash',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 1 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: 354 }, { name: 'Women', value: 295 }]
+    cost: [{ name: 'Men', value: '370' }, { name: 'Women', value: '300' }]
   },
   {
     sportName: 'Swimming',
-    cost: [{ name: 'Men', value: 4602 }, { name: 'Women', value: 3835 }]
+    cost: [{ name: 'Men', value: '4,800' }, { name: 'Women', value: '4,000' }]
   },
   {
     sportName: 'T.T',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: 1062 }, { name: 'Women', value: 295 }]
+    cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }]
   },
   {
     sportName: 'Volleyball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 12 }, { name: 'Women', size: 12 }],
-    cost: [{ name: 'Men', value: 4248 }, { name: 'Women', value: 3540 }]
+    cost: [{ name: 'Men', value: '4,400' }, { name: 'Women', value: '3,700' }]
   },
   {
     sportName: 'Handball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
-    cost: [{ name: 'Men', value: 5664 }]
+    cost: [{ name: 'Men', value: '5,900' }]
   },
   {
     sportName: 'Tennis',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 5 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: 1770 }, { name: 'Women', value: 295 }]
+    cost: [{ name: 'Men', value: '1,900' }, { name: 'Women', value: '300' }]
   },
   {
     sportName: 'Throwball',
     sizeType: 'max',
     teamSize: [{ name: 'Women', size: 10 }],
-    cost: [{ name: 'Women', value: 3245 }]
+    cost: [{ name: 'Women', value: '3,700' }]
   }
 ];
 
@@ -137,7 +137,7 @@ window.onload = () =>
               : ''
           }
         </div>
-        <form class="reg-form" onsubmit="return fetchRegister(event)">
+        <form class="reg-form" onsubmit="return submitForm(event)">
         </form>
       </div>`,
     ''
@@ -247,7 +247,7 @@ const regForm = (index, type, cost) => {
                 &nbsp;Current
               </label>
             </div>-->
-            <button class="register-btn">register</button>
+            <button id="submit" class="register-btn">register</button>
           </div>
 `;
 };
@@ -275,9 +275,10 @@ function deleteContactInput(el, e) {
   return false;
 }
 
-function fetchRegister(e) {
-  e.preventDefault();
-  const formData = [...document.querySelectorAll('.form-inputs input')]
+function fetchRegister(token) {
+  const formData = [
+    ...document.querySelectorAll('.form-inputs input:not([type=checkbox])')
+  ]
     .filter(el => ![...el.parentElement.classList].includes('contact-detail'))
     .reduce(
       (a, c) => ({
@@ -296,17 +297,31 @@ function fetchRegister(e) {
     ],
     []
   );
-  console.log({ ...formData, contact });
+  let valid = true;
+  [...document.querySelectorAll('input')].forEach(el => {
+    if (!el.checkValidity()) {
+      el.style.border = 'solid thin red';
+      valid = false;
+    }
+    if (!el.checkValidity() && el.type === 'checkbox')
+      snackbar('Verify data and accept T&C please', false);
+  });
+  grecaptcha.reset();
+  if (!valid) return;
   fetch('/api/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ ...formData, contact })
+    body: JSON.stringify({
+      ...formData,
+      contact,
+      'g-recaptcha-response': token
+    })
   })
     .then(resp => resp.json())
     .then(data => {
-      if (!data.success) alert('Error');
+      if (!data.success) snackbar('Could not register');
       else window.location.href = data.data.redirect;
     });
 }
@@ -323,9 +338,24 @@ function openRegistrationForm(sportIndex, type, cost) {
     block: 'start'
   });
   form.innerHTML = regForm(sportIndex, type, cost);
+  grecaptcha.render('submit', {
+    sitekey: '6Lf_MocUAAAAADAgZxykFBkb_DNw_ShFzLs-kyrB',
+    callback: fetchRegister
+  });
 }
 
 function submitForm(e) {
   e.preventDefault();
   return false;
+}
+
+function snackbar(content, success = true) {
+  document.querySelector('#snackbar').innerHTML = content;
+  document.querySelector('#snackbar').classList.add('open');
+  document
+    .querySelector('#snackbar')
+    .classList.add(success ? 'success' : 'danger');
+  setTimeout(() => {
+    document.querySelector('#snackbar').classList.remove('open');
+  }, 4000);
 }

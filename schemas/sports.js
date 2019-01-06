@@ -32,6 +32,7 @@ const register = Joi.object({
     // bankAccountType: Joi.string()
     //   .max(100)
     //   .required(),
+    'g-recaptcha-response': Joi.string().required(),
     contact: Joi.array().items(
       Joi.object({
         name: Joi.string()

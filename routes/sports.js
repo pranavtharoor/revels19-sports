@@ -5,15 +5,37 @@ const { sport, sportContact } = require('../models');
 const to = require('../utils/to');
 
 exports.register = async (req, res) => {
-  // @TODO: check teamSize
+  let err, resp, captchaData, result;
+  [err, resp] = await to(
+    fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${
+        process.env.RECAPTCHA_SECRET
+      }&response=${req.body['g-recaptcha-response']}`
+    )
+  );
+  if (err) return res.sendError();
+  [err, captchaData] = await to(resp.json());
+  if (err || !captchaData.success)
+    return res.sendError({ err, captchaData }, 'Invalid captcha');
   const { contact, ...details } = req.body;
   const order_id = await uuidv1();
   const sportItem = data.filter(sport => sport.sportName === req.body.sport)[0];
   if (!sportItem) return res.sendError(null, 'Sport not found', 404);
   const cost = sportItem.cost.filter(cost => cost.name === req.body.type)[0];
   if (!cost) return res.sendError(null, 'Category not found', 404);
+  const sizeType = sportItem.sizeType;
+  if (
+    (sizeType === 'max' &&
+      sportItem.teamSize.filter(size => size.name === req.body.type)[0].size <
+        req.body.teamSize) ||
+    (sizeType === 'exact' &&
+      sportItem.teamSize.filter(size => size.name === req.body.type)[0].size !==
+        req.body.teamSize)
+  )
+    return res.sendError(null, 'Invalid size');
+
   const amount_req = cost.value;
-  const [err, result] = await to(
+  [err, result] = await to(
     sequelize.transaction(t =>
       sport
         .create(details, { transaction: t })
@@ -82,88 +104,88 @@ exports.paytmDone = async (req, res) => {
 const data = [
   {
     sportName: 'Athletics',
-    cost: [{ name: 'Men', value: 3186 }, { name: 'Women', value: 2360 }]
+    cost: [{ name: 'Men', value: 3300 }, { name: 'Women', value: 2500 }]
   },
   {
     sportName: 'Badminton',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 7 }, { name: 'Women', size: 4 }],
-    cost: [{ name: 'Men', value: 2478 }, { name: 'Women', value: 1180 }]
+    cost: [{ name: 'Men', value: 2600 }, { name: 'Women', value: 1300 }]
   },
   {
     sportName: 'Basketball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 12 }, { name: 'Women', size: 12 }],
-    cost: [{ name: 'Men', value: 4248 }, { name: 'Women', value: 3540 }]
+    cost: [{ name: 'Men', value: 4400 }, { name: 'Women', value: 3700 }]
   },
   {
     sportName: 'Chess',
     sizeType: 'max',
     teamSize: [{ name: 'Combined', size: 5 }],
-    cost: [{ name: 'Combined', value: 1770 }]
+    cost: [{ name: 'Combined', value: 1800 }]
   },
   {
     sportName: 'Cricket',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }],
-    cost: [{ name: 'Men', value: 6372 }]
+    cost: [{ name: 'Men', value: 6600 }]
   },
   {
     sportName: 'Cross-Country',
     sizeType: 'exact',
     teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: 1062 }, { name: 'Women', value: 295 }]
+    cost: [{ name: 'Men', value: 1100 }, { name: 'Women', value: 300 }]
   },
   {
     sportName: 'Football',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }, { name: 'Women', size: 11 }],
-    cost: [{ name: 'Men', value: 6372 }, { name: 'Women', value: 3245 }]
+    cost: [{ name: 'Men', value: 6600 }, { name: 'Women', value: 3400 }]
   },
   {
     sportName: 'Hockey',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
-    cost: [{ name: 'Men', value: 5664 }]
+    cost: [{ name: 'Men', value: 5900 }]
   },
   {
     sportName: 'Squash',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 1 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: 354 }, { name: 'Women', value: 295 }]
+    cost: [{ name: 'Men', value: 370 }, { name: 'Women', value: 300 }]
   },
   {
     sportName: 'Swimming',
-    cost: [{ name: 'Men', value: 4602 }, { name: 'Women', value: 3835 }]
+    cost: [{ name: 'Men', value: 4800 }, { name: 'Women', value: 4000 }]
   },
   {
     sportName: 'T.T',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: 1062 }, { name: 'Women', value: 295 }]
+    cost: [{ name: 'Men', value: 1100 }, { name: 'Women', value: 300 }]
   },
   {
     sportName: 'Volleyball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 12 }, { name: 'Women', size: 12 }],
-    cost: [{ name: 'Men', value: 4248 }, { name: 'Women', value: 3540 }]
+    cost: [{ name: 'Men', value: 4400 }, { name: 'Women', value: 3700 }]
   },
   {
     sportName: 'Handball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
-    cost: [{ name: 'Men', value: 5664 }]
+    cost: [{ name: 'Men', value: 5900 }]
   },
   {
     sportName: 'Tennis',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 5 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: 1770 }, { name: 'Women', value: 295 }]
+    cost: [{ name: 'Men', value: 1900 }, { name: 'Women', value: 300 }]
   },
   {
     sportName: 'Throwball',
     sizeType: 'max',
     teamSize: [{ name: 'Women', size: 10 }],
-    cost: [{ name: 'Women', value: 3245 }]
+    cost: [{ name: 'Women', value: 3700 }]
   }
 ];
