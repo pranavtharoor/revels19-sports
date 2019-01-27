@@ -12,4 +12,10 @@ router.post('/paymentcomplete', sports.paytmDone);
 
 router.get('/', (req, res) => res.render('paytmDonePending'));
 
+router.get(
+  '/emailstatus/:order_id',
+  validator(schemas.sports.emailStatus),
+  sports.emailStatus
+);
+
 module.exports = router;

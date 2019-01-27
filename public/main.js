@@ -1,89 +1,134 @@
 const data = [
   {
     sportName: 'Athletics',
-    cost: [{ name: 'Men', value: '3,300' }, { name: 'Women', value: '2,500' }]
+    cost: [{ name: 'Men', value: '3,300' }, { name: 'Women', value: '2,500' }],
+    prize: [
+      { name: 'Men', value: ['16,000', '8,000'] },
+      { name: 'Women', value: ['9,500', '4,750'] }
+    ]
   },
   {
     sportName: 'Badminton',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 7 }, { name: 'Women', size: 4 }],
-    cost: [{ name: 'Men', value: '2,600' }, { name: 'Women', value: '1,300' }]
+    cost: [{ name: 'Men', value: '2,600' }, { name: 'Women', value: '1,300' }],
+    prize: [
+      { name: 'Men', value: ['11,000', '5,500'] },
+      { name: 'Women', value: ['6,000', '3,000'] }
+    ]
   },
   {
     sportName: 'Basketball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 12 }, { name: 'Women', size: 12 }],
-    cost: [{ name: 'Men', value: '4,400' }, { name: 'Women', value: '3,700' }]
+    cost: [{ name: 'Men', value: '4,400' }, { name: 'Women', value: '3,700' }],
+    prize: [
+      { name: 'Men', value: ['32,000', '16,000'] },
+      { name: 'Women', value: ['18,000', '9,000'] }
+    ]
   },
   {
     sportName: 'Chess',
     sizeType: 'max',
     teamSize: [{ name: 'Combined', size: 5 }],
-    cost: [{ name: 'Combined', value: '1,800' }]
+    cost: [{ name: 'Combined', value: '1,800' }],
+    prize: [{ name: 'Combined', value: ['10,000', '5,000'] }]
   },
   {
     sportName: 'Cricket',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }],
-    cost: [{ name: 'Men', value: '6,600' }]
+    cost: [{ name: 'Men', value: '6,600' }],
+    prize: [{ name: 'Men', value: ['36,000', '18,000'] }]
   },
   {
     sportName: 'Cross-Country',
     sizeType: 'exact',
     teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }]
+    cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }],
+    prize: [
+      { name: 'Men', value: ['4,500', '2,250'] },
+      { name: 'Women', value: ['2,500', '1,250'] }
+    ]
   },
   {
     sportName: 'Football',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }, { name: 'Women', size: 11 }],
-    cost: [{ name: 'Men', value: '6,600' }, { name: 'Women', value: '3,400' }]
+    cost: [{ name: 'Men', value: '6,600' }, { name: 'Women', value: '3,400' }],
+    prize: [
+      { name: 'Men', value: ['60,000', '30,000'] },
+      { name: 'Women', value: ['12,000', '6,000'] }
+    ]
   },
   {
     sportName: 'Hockey',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
-    cost: [{ name: 'Men', value: '5,900' }]
+    cost: [{ name: 'Men', value: '5,900' }],
+    prize: [{ name: 'Men', value: ['42,000', '21,000'] }]
   },
   {
     sportName: 'Squash',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 1 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: '370' }, { name: 'Women', value: '300' }]
+    cost: [{ name: 'Men', value: '370' }, { name: 'Women', value: '300' }],
+    prize: [
+      { name: 'Men', value: ['3,000', '1,500'] },
+      { name: 'Women', value: ['2,500', '1,250'] }
+    ]
   },
   {
     sportName: 'Swimming',
-    cost: [{ name: 'Men', value: '4,800' }, { name: 'Women', value: '4,000' }]
+    cost: [{ name: 'Men', value: '4,800' }, { name: 'Women', value: '4,000' }],
+    prize: [
+      { name: 'Men', value: ['24,000', '12,000'] },
+      { name: 'Women', value: ['12,000', '6,000'] }
+    ]
   },
   {
-    sportName: 'T.T',
+    sportName: 'Table Tennis',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }]
+    cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }],
+    prize: [
+      { name: 'Men', value: ['10,000', '5,000'] },
+      { name: 'Women', value: ['7,000', '3,500'] }
+    ]
   },
   {
     sportName: 'Volleyball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 12 }, { name: 'Women', size: 12 }],
-    cost: [{ name: 'Men', value: '4,400' }, { name: 'Women', value: '3,700' }]
+    cost: [{ name: 'Men', value: '4,400' }, { name: 'Women', value: '3,700' }],
+    prize: [
+      { name: 'Men', value: ['15,000', '7,500'] },
+      { name: 'Women', value: ['10,000', '5,000'] }
+    ]
   },
   {
     sportName: 'Handball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
-    cost: [{ name: 'Men', value: '5,900' }]
+    cost: [{ name: 'Men', value: '5,900' }],
+    prize: [{ name: 'Men', value: ['19,000', '9,500'] }]
   },
   {
     sportName: 'Tennis',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 5 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: '1,900' }, { name: 'Women', value: '300' }]
+    cost: [{ name: 'Men', value: '1,900' }, { name: 'Women', value: '300' }],
+    prize: [
+      { name: 'Men', value: ['12,000', '6,000'] },
+      { name: 'Women', value: ['2,500', '1,250'] }
+    ]
   },
   {
     sportName: 'Throwball',
     sizeType: 'max',
     teamSize: [{ name: 'Women', size: 10 }],
-    cost: [{ name: 'Women', value: '3,700' }]
+    cost: [{ name: 'Women', value: '3,700' }],
+    prize: [{ name: 'Women', value: ['12,000', '6,000'] }]
   }
 ];
 
@@ -93,7 +138,7 @@ window.onload = () =>
       a +
       `<div class="card-container">
         <div class="card sport">
-          <div>
+          <div class="sport-detail">
             <div class="sport-name">${c.sportName}</div>
             ${
               c.teamSize
@@ -123,11 +168,11 @@ window.onload = () =>
                   (a, c) =>
                     a +
                     `<div>
-                      <div class="cost">
-                        <div>${c.name}</div>
+                    <div class="cost">
+                    <div>${c.name}</div>
                         <div>₹ ${c.value}</div>
-                      </div>
-                      <button onclick="openRegistrationForm(${sportIndex}, '${
+                        </div>
+                        <button onclick="openRegistrationForm(${sportIndex}, '${
                       c.name
                     }', '${c.value}')" class="register">register</button>
                     </div>`,
@@ -136,10 +181,30 @@ window.onload = () =>
                 </div>`
               : ''
           }
+          ${
+            c.prize
+              ? `<div class="details prize">
+                  <div>Prize money (1<sup>st</sup>, 2<sup>nd</sup>)</div>
+                  ${c.prize.reduce(
+                    (a, p) =>
+                      a +
+                      `
+                        <div class="prize-money">
+                          <div class="prize-name">${p.name}</div>
+                          <div class="prize-values">
+                            ${p.value.map(val => `&nbsp;₹<div>${val}</div>`)}
+                          </div>
+                        </div>
+                      `,
+                    ''
+                  )}
+                </div>`
+              : ''
+          }
         </div>
         <form class="reg-form" onsubmit="return submitForm(event)">
         </form>
-      </div>`,
+        </div>`,
     ''
   ));
 

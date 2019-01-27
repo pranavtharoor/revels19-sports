@@ -38,7 +38,7 @@ exports.register = async (req, res) => {
   [err, result] = await to(
     sequelize.transaction(t =>
       sport
-        .create(details, { transaction: t })
+        .create({ ...details, order_id }, { transaction: t })
         .then(result =>
           sportContact.bulkCreate(
             contact.map(c => ({ ...c, sportId: result.id })),
@@ -99,6 +99,50 @@ exports.paytmDone = async (req, res) => {
   if (data.status === 'TXN_SUCCESS') res.render('paytmDoneSuccess', data);
   else if (data.status === 'PENDING') res.render('paytmDonePending', data);
   else res.render('paytmDoneFailure', data);
+};
+
+exports.emailStatus = async (req, res) => {
+  let err, resp, data;
+  [err, data] = await to(
+    sport.findOne({
+      where: { order_id: req.params.order_id },
+      attributes: [
+        'sport',
+        'college',
+        'type',
+        'teamSize',
+        'collegePEContact',
+        'name',
+        'email',
+        'order_id',
+        'mobile'
+      ]
+    })
+  );
+  if (err) return res.sendError(err);
+  [err, resp] = await to(
+    fetch('http:s//mailer.mitrevels.in/getSportsConfirmationEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sport: data.sport,
+        college: data.college,
+        type: data.type,
+        teamSize: data.teamSize,
+        collegePEContact: data.collegePEContact,
+        name: data.name,
+        email: data.email,
+        order_id: data.order_id,
+        mobile: data.mobile,
+        auth: process.env.MAILER_KEY
+      })
+    })
+  );
+  if (err) return res.sendError(err, 'Could not send email');
+  [err, data] = await to(resp.json());
+  if (err || !data.success)
+    return res.sendError({ err, data }, 'Could not send email');
+  res.sendSuccess();
 };
 
 const data = [

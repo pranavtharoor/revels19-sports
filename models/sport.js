@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    order_id: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     mobile: {
       type: DataTypes.STRING,
       allowNull: false

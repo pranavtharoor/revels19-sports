@@ -47,4 +47,10 @@ const register = Joi.object({
   }).required()
 });
 
-module.exports = { register };
+const emailStatus = Joi.object({
+  params: Joi.object({
+    order_id: Joi.string().required()
+  }).required()
+});
+
+module.exports = { register, emailStatus };
