@@ -102,8 +102,7 @@ exports.paytmDone = async (req, res) => {
 };
 
 exports.emailStatus = async (req, res) => {
-  if (req.query.token !== 'arandomafauthtoken')
-    return res.send({ success: false });
+  if (req.query.token !== 'arandomafauthtoken') return res.sendError();
   let err, resp, data;
   [err, data] = await to(
     sport.findOne({
