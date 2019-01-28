@@ -50,6 +50,9 @@ const register = Joi.object({
 const emailStatus = Joi.object({
   params: Joi.object({
     order_id: Joi.string().required()
+  }).required(),
+  query: Joi.object({
+    token: Joi.string().required()
   }).required()
 });
 

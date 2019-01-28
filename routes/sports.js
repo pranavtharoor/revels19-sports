@@ -102,6 +102,8 @@ exports.paytmDone = async (req, res) => {
 };
 
 exports.emailStatus = async (req, res) => {
+  if (req.query.token !== 'arandomafauthtoken')
+    return res.send({ success: false });
   let err, resp, data;
   [err, data] = await to(
     sport.findOne({
@@ -121,7 +123,7 @@ exports.emailStatus = async (req, res) => {
   );
   if (err) return res.sendError(err);
   [err, resp] = await to(
-    fetch('http:s//mailer.mitrevels.in/getSportsConfirmationEmail', {
+    fetch('https://mailer.mitrevels.in/getSportsConfirmationEmail', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
