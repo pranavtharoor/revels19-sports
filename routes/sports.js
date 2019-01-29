@@ -76,7 +76,7 @@ exports.register = async (req, res) => {
       `);
   res.sendSuccess({
     redirect: `https://paytm.mitportals.in/initiate?orderid=${order_id}&callback=${
-      process.env.NODE_ENV === 'development'
+      process.env.NODE_ENV === 'development' && false
         ? `http://localhost:${process.env.PORT || 3000}/api/paymentcomplete`
         : 'https://sports.mitrevels.in/api/paymentcomplete'
     }`
