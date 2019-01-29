@@ -204,7 +204,7 @@ const data = [
     cost: [{ name: 'Men', value: 4800 }, { name: 'Women', value: 4000 }]
   },
   {
-    sportName: 'T.T',
+    sportName: 'Table Tennis',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
     cost: [{ name: 'Men', value: 1100 }, { name: 'Women', value: 300 }]
