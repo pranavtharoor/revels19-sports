@@ -386,7 +386,7 @@ function fetchRegister(token) {
   })
     .then(resp => resp.json())
     .then(data => {
-      if (!data.success) snackbar('Could not register');
+      if (!data.success) snackbar('Could not register', false);
       else window.location.href = data.data.redirect;
     });
 }
