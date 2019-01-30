@@ -278,6 +278,11 @@ const regForm = (index, type, cost) => {
             <br />
             <div>
               <label class="container">
+                <input type="checkbox" name="techCollege" required />
+                <span class="checkmark"></span>
+              </label>&nbsp;I verify that I am from a technical institute
+              <br />
+              <label class="container">
                 <input type="checkbox" name="verifyValidity" required />
                 <span class="checkmark"></span>
               </label>&nbsp;I verify that the data I have provided is correct
@@ -285,7 +290,7 @@ const regForm = (index, type, cost) => {
               <label class="container">
                 <input type="checkbox" name="acceptTerms" required />
                 <span class="checkmark"></span>
-              </label>&nbsp;I accept the <a>Terms & Conditions</a>
+              </label>&nbsp;I accept the <a href="/tnc.pdf" target="_blank">Terms & Conditions</a>
             </div>
             <!--<div>
               <div class="input-name">Bank account number</div>
@@ -369,7 +374,7 @@ function fetchRegister(token) {
       valid = false;
     }
     if (!el.checkValidity() && el.type === 'checkbox')
-      snackbar('Verify data and accept T&C please', false);
+      snackbar('Verify data, technical institute and accept T&C please', false);
   });
   grecaptcha.reset();
   if (!valid) return;
