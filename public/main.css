@@ -443,7 +443,7 @@ input:focus {
 }
 
 a {
-  color: white;
+  color: inherit;
 }
 
 #snackbar.open {
