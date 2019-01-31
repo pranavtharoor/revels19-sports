@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
     mobile: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    referral: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
     // bankAccountNumber: {
     //   type: DataTypes.STRING,

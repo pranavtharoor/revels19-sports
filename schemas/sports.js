@@ -20,6 +20,9 @@ const register = Joi.object({
       .email()
       .required(),
     mobile: Joi.number().required(),
+    referral: Joi.string()
+      .allow('')
+      .allow(null),
     // bankAccountNumber: Joi.string()
     //   .max(100)
     //   .required(),

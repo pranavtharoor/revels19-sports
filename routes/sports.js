@@ -24,13 +24,18 @@ exports.register = async (req, res) => {
   const cost = sportItem.cost.filter(cost => cost.name === req.body.type)[0];
   if (!cost) return res.sendError(null, 'Category not found', 404);
   const sizeType = sportItem.sizeType;
+  const allowedTeamSize = sportItem.teamSize.filter(
+    size => size.name === req.body.type
+  )[0].size;
+  let enteredTeamSize = req.body.teamSize;
+  try {
+    enteredTeamSize = parseInt(enteredTeamSize);
+  } catch (err) {
+    return res.sendError(err, 'Invalid size');
+  }
   if (
-    (sizeType === 'max' &&
-      sportItem.teamSize.filter(size => size.name === req.body.type)[0].size <
-        req.body.teamSize) ||
-    (sizeType === 'exact' &&
-      sportItem.teamSize.filter(size => size.name === req.body.type)[0].size !==
-        req.body.teamSize)
+    (sizeType === 'max' && allowedTeamSize < enteredTeamSize) ||
+    (sizeType === 'exact' && allowedTeamSize !== enteredTeamSize)
   )
     return res.sendError(null, 'Invalid size');
 
@@ -76,7 +81,7 @@ exports.register = async (req, res) => {
       `);
   res.sendSuccess({
     redirect: `https://paytm.mitportals.in/initiate?orderid=${order_id}&callback=${
-      process.env.NODE_ENV === 'development' && false
+      process.env.NODE_ENV === 'development'
         ? `http://localhost:${process.env.PORT || 3000}/api/paymentcomplete`
         : 'https://sports.mitrevels.in/api/paymentcomplete'
     }`

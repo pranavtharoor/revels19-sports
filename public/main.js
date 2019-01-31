@@ -132,6 +132,8 @@ const data = [
   }
 ];
 
+const referral = new URL(location.href).searchParams.get('referral');
+
 window.onload = () =>
   (document.querySelector('.sports').innerHTML = data.reduce(
     (a, c, sportIndex) =>
@@ -275,6 +277,14 @@ const regForm = (index, type, cost) => {
               <div class="input-name">Mobile number (for Paytm)</div>
               <input type="number" name="mobile" required />
             </div>
+            ${
+              referral
+                ? `<input type="hidden" value="${referral}" name="referral" />`
+                : `<div>
+                <div class="input-name">Referral Code (if any)</div>
+                <input type="text" name="referral" />
+              </div>`
+            }
             <br />
             <div>
               <label class="container">
@@ -402,7 +412,7 @@ function openRegistrationForm(sportIndex, type, cost) {
     form.style.height = '0px';
     form.innerHTML = '';
   });
-  form.style.height = '980px';
+  form.style.height = '1020px';
   document.querySelectorAll('.card-container')[sportIndex].scrollIntoView({
     behavior: 'smooth',
     block: 'start'
