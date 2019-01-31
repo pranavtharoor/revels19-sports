@@ -24,9 +24,9 @@ exports.register = async (req, res) => {
   const cost = sportItem.cost.filter(cost => cost.name === req.body.type)[0];
   if (!cost) return res.sendError(null, 'Category not found', 404);
   const sizeType = sportItem.sizeType;
-  const allowedTeamSize = sportItem.teamSize.filter(
-    size => size.name === req.body.type
-  )[0].size;
+  const allowedTeamSize = sportItem.teamSize
+    ? sportItem.teamSize.filter(size => size.name === req.body.type)[0].size
+    : -1;
   let enteredTeamSize = req.body.teamSize;
   try {
     enteredTeamSize = parseInt(enteredTeamSize);
@@ -34,8 +34,9 @@ exports.register = async (req, res) => {
     return res.sendError(err, 'Invalid size');
   }
   if (
-    (sizeType === 'max' && allowedTeamSize < enteredTeamSize) ||
-    (sizeType === 'exact' && allowedTeamSize !== enteredTeamSize)
+    allowedTeamSize !== -1 &&
+    ((sizeType === 'max' && allowedTeamSize < enteredTeamSize) ||
+      (sizeType === 'exact' && allowedTeamSize !== enteredTeamSize))
   )
     return res.sendError(null, 'Invalid size');
 
