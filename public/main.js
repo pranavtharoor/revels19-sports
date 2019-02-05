@@ -5,7 +5,8 @@ const data = [
     prize: [
       { name: 'Men', value: ['16,000', '8,000'] },
       { name: 'Women', value: ['9,500', '4,750'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Badminton',
@@ -15,7 +16,8 @@ const data = [
     prize: [
       { name: 'Men', value: ['11,000', '5,500'] },
       { name: 'Women', value: ['6,000', '3,000'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Basketball',
@@ -25,21 +27,24 @@ const data = [
     prize: [
       { name: 'Men', value: ['32,000', '16,000'] },
       { name: 'Women', value: ['18,000', '9,000'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Chess',
     sizeType: 'max',
     teamSize: [{ name: 'Combined', size: 5 }],
     cost: [{ name: 'Combined', value: '1,800' }],
-    prize: [{ name: 'Combined', value: ['10,000', '5,000'] }]
+    prize: [{ name: 'Combined', value: ['10,000', '5,000'] }],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Cricket',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }],
     cost: [{ name: 'Men', value: '6,600' }],
-    prize: [{ name: 'Men', value: ['36,000', '18,000'] }]
+    prize: [{ name: 'Men', value: ['36,000', '18,000'] }],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Cross-Country',
@@ -49,7 +54,8 @@ const data = [
     prize: [
       { name: 'Men', value: ['4,500', '2,250'] },
       { name: 'Women', value: ['2,500', '1,250'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Football',
@@ -59,14 +65,16 @@ const data = [
     prize: [
       { name: 'Men', value: ['60,000', '30,000'] },
       { name: 'Women', value: ['12,000', '6,000'] }
-    ]
+    ],
+    date: '4th to 9th March'
   },
   {
     sportName: 'Hockey',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
     cost: [{ name: 'Men', value: '5,900' }],
-    prize: [{ name: 'Men', value: ['42,000', '21,000'] }]
+    prize: [{ name: 'Men', value: ['42,000', '21,000'] }],
+    date: '4th to 9th March'
   },
   {
     sportName: 'Squash',
@@ -76,7 +84,8 @@ const data = [
     prize: [
       { name: 'Men', value: ['3,000', '1,500'] },
       { name: 'Women', value: ['2,500', '1,250'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Swimming',
@@ -84,7 +93,8 @@ const data = [
     prize: [
       { name: 'Men', value: ['24,000', '12,000'] },
       { name: 'Women', value: ['12,000', '6,000'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Table Tennis',
@@ -94,7 +104,8 @@ const data = [
     prize: [
       { name: 'Men', value: ['10,000', '5,000'] },
       { name: 'Women', value: ['7,000', '3,500'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Volleyball',
@@ -104,14 +115,16 @@ const data = [
     prize: [
       { name: 'Men', value: ['15,000', '7,500'] },
       { name: 'Women', value: ['10,000', '5,000'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Handball',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
     cost: [{ name: 'Men', value: '5,900' }],
-    prize: [{ name: 'Men', value: ['19,000', '9,500'] }]
+    prize: [{ name: 'Men', value: ['19,000', '9,500'] }],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Tennis',
@@ -121,14 +134,16 @@ const data = [
     prize: [
       { name: 'Men', value: ['12,000', '6,000'] },
       { name: 'Women', value: ['2,500', '1,250'] }
-    ]
+    ],
+    date: '6th to 9th March'
   },
   {
     sportName: 'Throwball',
     sizeType: 'max',
     teamSize: [{ name: 'Women', size: 10 }],
     cost: [{ name: 'Women', value: '3,700' }],
-    prize: [{ name: 'Women', value: ['12,000', '6,000'] }]
+    prize: [{ name: 'Women', value: ['12,000', '6,000'] }],
+    date: '6th to 9th March'
   }
 ];
 
@@ -142,6 +157,7 @@ window.onload = () =>
         <div class="card sport">
           <div class="sport-detail">
             <div class="sport-name">${c.sportName}</div>
+            <div class="sport-date">${c.date}</div>
             ${
               c.teamSize
                 ? `<div class="details">
