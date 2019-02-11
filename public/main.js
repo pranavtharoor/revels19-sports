@@ -44,7 +44,7 @@ const data = [
     teamSize: [{ name: 'Men', size: 18 }],
     cost: [{ name: 'Men', value: '6,600' }],
     prize: [{ name: 'Men', value: ['36,000', '18,000'] }],
-    date: '6th to 9th March'
+    date: '4th to 9th March'
   },
   {
     sportName: 'Cross-Country',
