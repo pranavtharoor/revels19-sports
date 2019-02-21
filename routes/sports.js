@@ -4,6 +4,18 @@ const { sequelize } = require('../models');
 const { sport, sportContact } = require('../models');
 const to = require('../utils/to');
 
+exports.init = async (req, res) => {
+  let [err, count] = await to(
+    sequelize.query(
+      `select sport, count(*) as regCount, sports.type as type from sports join paytm on sports.order_id = paytm.order_id where status = 'TXN_SUCCESS' and paytm.type = 'SPORTS' group by sport, type`,
+      { type: sequelize.QueryTypes.SELECT }
+    )
+  );
+  count = count.filter(a => maxCount[a.sport][a.type] < a.regCount);
+  if (err) return res.sendError(err);
+  res.sendSuccess(count);
+};
+
 exports.register = async (req, res) => {
   let err, resp, captchaData, result;
   [err, resp] = await to(
@@ -240,3 +252,65 @@ const data = [
     cost: [{ name: 'Women', value: 3700 }]
   }
 ];
+
+const maxCount = {
+  Athletics: {
+    Men: 99999,
+    Women: 99999
+  },
+  Badminton: {
+    Men: 8,
+    Women: 8
+  },
+  Basketball: {
+    Men: 99999,
+    Women: 99999
+  },
+  Chess: {
+    Combined: 99999
+  },
+  Cricket: {
+    Men: 16,
+    Women: 16
+  },
+  'Cross-Country': {
+    Men: 99999,
+    Women: 99999
+  },
+  Football: {
+    Men: 21,
+    Women: 8
+  },
+  Hockey: {
+    Men: 18,
+    Women: 18
+  },
+  Squash: {
+    Men: 5,
+    Women: 5
+  },
+  Swimming: {
+    Men: 12,
+    Women: 12
+  },
+  'Table Tennis': {
+    Men: 99999,
+    Women: 99999
+  },
+  Volleyball: {
+    Men: 10,
+    Women: 6
+  },
+  Handball: {
+    Men: 8,
+    Women: 8
+  },
+  Tennis: {
+    Men: 7,
+    Women: 5
+  },
+  Throwball: {
+    Men: 8,
+    Women: 6
+  }
+};

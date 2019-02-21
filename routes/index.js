@@ -10,6 +10,8 @@ router.post('/register', validator(schemas.sports.register), sports.register);
 
 router.post('/paymentcomplete', sports.paytmDone);
 
+router.get('/init', sports.init);
+
 router.get('/', (req, res) => res.render('paytmDonePending'));
 
 router.get(

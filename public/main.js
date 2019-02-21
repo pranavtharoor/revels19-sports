@@ -149,7 +149,18 @@ const data = [
 
 const referral = new URL(location.href).searchParams.get('referral');
 
-window.onload = () =>
+let full = null;
+
+window.onload = () => {
+  fetch('/api/init')
+    .then(resp => resp.json())
+    .then(respData => {
+      full = respData.data;
+      populate();
+    });
+};
+
+const populate = () =>
   (document.querySelector('.sports').innerHTML = data.reduce(
     (a, c, sportIndex) =>
       a +
@@ -423,6 +434,12 @@ function fetchRegister(token) {
 }
 
 function openRegistrationForm(sportIndex, type, cost) {
+  if (
+    full.filter(a => a.sport === data[sportIndex].sportName && a.type === type)
+      .length > 0
+  )
+    return snackbar('Sorry, registrations full', false);
+
   const form = document.querySelectorAll('.reg-form')[sportIndex];
   [...document.querySelectorAll('.reg-form')].forEach(form => {
     form.style.height = '0px';
