@@ -6,7 +6,7 @@ const data = [
       { name: 'Men', value: ['16,000', '8,000'] },
       { name: 'Women', value: ['9,500', '4,750'] }
     ],
-    date: '6th to 9th March'
+    date: '6<sup>th</sup> March 06:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Badminton',
@@ -17,7 +17,7 @@ const data = [
       { name: 'Men', value: ['11,000', '5,500'] },
       { name: 'Women', value: ['6,000', '3,000'] }
     ],
-    date: '6th to 9th March'
+    date: '6<sup>th</sup> March 14:00 to 7<sup>th</sup> March'
   },
   {
     sportName: 'Basketball',
@@ -28,7 +28,7 @@ const data = [
       { name: 'Men', value: ['32,000', '16,000'] },
       { name: 'Women', value: ['18,000', '9,000'] }
     ],
-    date: '6th to 9th March'
+    date: '6<sup>th</sup> March 17:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Chess',
@@ -36,7 +36,7 @@ const data = [
     teamSize: [{ name: 'Combined', size: 5 }],
     cost: [{ name: 'Combined', value: '1,800' }],
     prize: [{ name: 'Combined', value: ['10,000', '5,000'] }],
-    date: '6th to 9th March'
+    date: '6<sup>th</sup> March 17:00 to 8<sup>th</sup> March'
   },
   {
     sportName: 'Cricket',
@@ -44,7 +44,7 @@ const data = [
     teamSize: [{ name: 'Men', size: 18 }],
     cost: [{ name: 'Men', value: '6,600' }],
     prize: [{ name: 'Men', value: ['36,000', '18,000'] }],
-    date: '4th to 9th March'
+    date: '4<sup>th</sup> March 09:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Cross-Country',
@@ -55,7 +55,7 @@ const data = [
       { name: 'Men', value: ['4,500', '2,250'] },
       { name: 'Women', value: ['2,500', '1,250'] }
     ],
-    date: '6th to 9th March'
+    date: '8<sup>th</sup> March 06:00 to 8<sup>th</sup> March'
   },
   {
     sportName: 'Football',
@@ -66,7 +66,7 @@ const data = [
       { name: 'Men', value: ['60,000', '30,000'] },
       { name: 'Women', value: ['12,000', '6,000'] }
     ],
-    date: '4th to 9th March'
+    date: '4<sup>th</sup> March 07:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Hockey',
@@ -74,7 +74,7 @@ const data = [
     teamSize: [{ name: 'Men', size: 16 }],
     cost: [{ name: 'Men', value: '5,900' }],
     prize: [{ name: 'Men', value: ['42,000', '21,000'] }],
-    date: '4th to 9th March'
+    date: '6<sup>th</sup> March 16:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Squash',
@@ -85,7 +85,7 @@ const data = [
       { name: 'Men', value: ['3,000', '1,500'] },
       { name: 'Women', value: ['2,500', '1,250'] }
     ],
-    date: '6th to 9th March'
+    date: '4<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Swimming',
@@ -94,7 +94,7 @@ const data = [
       { name: 'Men', value: ['24,000', '12,000'] },
       { name: 'Women', value: ['12,000', '6,000'] }
     ],
-    date: '6th to 9th March'
+    date: '6<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Table Tennis',
@@ -105,7 +105,7 @@ const data = [
       { name: 'Men', value: ['10,000', '5,000'] },
       { name: 'Women', value: ['7,000', '3,500'] }
     ],
-    date: '6th to 9th March'
+    date: '6<sup>th</sup> March 13:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Volleyball',
@@ -116,7 +116,7 @@ const data = [
       { name: 'Men', value: ['15,000', '7,500'] },
       { name: 'Women', value: ['10,000', '5,000'] }
     ],
-    date: '6th to 9th March'
+    date: '6<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Handball',
@@ -124,7 +124,7 @@ const data = [
     teamSize: [{ name: 'Men', size: 16 }],
     cost: [{ name: 'Men', value: '5,900' }],
     prize: [{ name: 'Men', value: ['19,000', '9,500'] }],
-    date: '6th to 9th March'
+    date: '8<sup>th</sup> March 16:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Tennis',
@@ -135,7 +135,7 @@ const data = [
       { name: 'Men', value: ['12,000', '6,000'] },
       { name: 'Women', value: ['2,500', '1,250'] }
     ],
-    date: '6th to 9th March'
+    date: '7<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Throwball',
@@ -143,7 +143,7 @@ const data = [
     teamSize: [{ name: 'Women', size: 10 }],
     cost: [{ name: 'Women', value: '3,700' }],
     prize: [{ name: 'Women', value: ['12,000', '6,000'] }],
-    date: '6th to 9th March'
+    date: '6<sup>th</sup> March 08:00 to 6<sup>th</sup> March'
   }
 ];
 
