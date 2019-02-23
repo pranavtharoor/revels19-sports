@@ -1,6 +1,7 @@
 const data = [
   {
     sportName: 'Athletics',
+    venue: 'MIT Cricket/Athletics ground',
     cost: [{ name: 'Men', value: '3,300' }, { name: 'Women', value: '2,500' }],
     prize: [
       { name: 'Men', value: ['16,000', '8,000'] },
@@ -10,6 +11,7 @@ const data = [
   },
   {
     sportName: 'Badminton',
+    venue: 'Recreational Center',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 7 }, { name: 'Women', size: 4 }],
     cost: [{ name: 'Men', value: '2,600' }, { name: 'Women', value: '1,300' }],
@@ -21,6 +23,7 @@ const data = [
   },
   {
     sportName: 'Basketball',
+    venue: 'MIT Basketball Court (Block 13)',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 12 }, { name: 'Women', size: 12 }],
     cost: [{ name: 'Men', value: '4,400' }, { name: 'Women', value: '3,700' }],
@@ -32,6 +35,7 @@ const data = [
   },
   {
     sportName: 'Chess',
+    venue: 'Academic Block-5',
     sizeType: 'max',
     teamSize: [{ name: 'Combined', size: 5 }],
     cost: [{ name: 'Combined', value: '1,800' }],
@@ -40,6 +44,7 @@ const data = [
   },
   {
     sportName: 'Cricket',
+    venue: 'MIT Cricket/Athletics ground',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }],
     cost: [{ name: 'Men', value: '6,600' }],
@@ -48,6 +53,7 @@ const data = [
   },
   {
     sportName: 'Cross-Country',
+    venue: 'MIT Athletic ground',
     sizeType: 'exact',
     teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
     cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }],
@@ -59,6 +65,7 @@ const data = [
   },
   {
     sportName: 'Football',
+    venue: 'MIT Football Ground/End Point ',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 18 }, { name: 'Women', size: 11 }],
     cost: [{ name: 'Men', value: '6,600' }, { name: 'Women', value: '3,400' }],
@@ -69,15 +76,38 @@ const data = [
     date: '4<sup>th</sup> March 07:00 to 9<sup>th</sup> March'
   },
   {
+    sportName: 'Handball',
+    venue: 'MIT Handball Ground (Above Football ground)',
+    sizeType: 'max',
+    teamSize: [{ name: 'Men', size: 16 }],
+    cost: [{ name: 'Men', value: '5,900' }],
+    prize: [{ name: 'Men', value: ['19,000', '9,500'] }],
+    date: '6<sup>th</sup> March 16:00 to 9<sup>th</sup> March'
+  },
+  {
     sportName: 'Hockey',
+    venue: 'MIT Hockey Ground',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 16 }],
     cost: [{ name: 'Men', value: '5,900' }],
     prize: [{ name: 'Men', value: ['42,000', '21,000'] }],
-    date: '6<sup>th</sup> March 16:00 to 9<sup>th</sup> March'
+    date: '4<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
+  },
+  {
+    sportName: 'Tennis',
+    venue: 'MIT Tennis Court , Recreation Center',
+    sizeType: 'max',
+    teamSize: [{ name: 'Men', size: 5 }, { name: 'Women', size: 1 }],
+    cost: [{ name: 'Men', value: '1,900' }, { name: 'Women', value: '300' }],
+    prize: [
+      { name: 'Men', value: ['12,000', '6,000'] },
+      { name: 'Women', value: ['2,500', '1,250'] }
+    ],
+    date: '6<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Squash',
+    venue: 'Marena Sports complex',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 1 }, { name: 'Women', size: 1 }],
     cost: [{ name: 'Men', value: '370' }, { name: 'Women', value: '300' }],
@@ -85,10 +115,11 @@ const data = [
       { name: 'Men', value: ['3,000', '1,500'] },
       { name: 'Women', value: ['2,500', '1,250'] }
     ],
-    date: '4<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
+    date: '6<sup>th</sup> March 13:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Swimming',
+    venue: 'MIT Swimming Pool',
     cost: [{ name: 'Men', value: '4,800' }, { name: 'Women', value: '4,000' }],
     prize: [
       { name: 'Men', value: ['24,000', '12,000'] },
@@ -98,6 +129,7 @@ const data = [
   },
   {
     sportName: 'Table Tennis',
+    venue: 'Recreational Center',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 4 }, { name: 'Women', size: 1 }],
     cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }],
@@ -105,10 +137,11 @@ const data = [
       { name: 'Men', value: ['10,000', '5,000'] },
       { name: 'Women', value: ['7,000', '3,500'] }
     ],
-    date: '6<sup>th</sup> March 13:00 to 9<sup>th</sup> March'
+    date: '8<sup>th</sup> March 16:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Volleyball',
+    venue: 'MIT GROUND',
     sizeType: 'max',
     teamSize: [{ name: 'Men', size: 12 }, { name: 'Women', size: 12 }],
     cost: [{ name: 'Men', value: '4,400' }, { name: 'Women', value: '3,700' }],
@@ -116,29 +149,11 @@ const data = [
       { name: 'Men', value: ['15,000', '7,500'] },
       { name: 'Women', value: ['10,000', '5,000'] }
     ],
-    date: '6<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
-  },
-  {
-    sportName: 'Handball',
-    sizeType: 'max',
-    teamSize: [{ name: 'Men', size: 16 }],
-    cost: [{ name: 'Men', value: '5,900' }],
-    prize: [{ name: 'Men', value: ['19,000', '9,500'] }],
-    date: '8<sup>th</sup> March 16:00 to 9<sup>th</sup> March'
-  },
-  {
-    sportName: 'Tennis',
-    sizeType: 'max',
-    teamSize: [{ name: 'Men', size: 5 }, { name: 'Women', size: 1 }],
-    cost: [{ name: 'Men', value: '1,900' }, { name: 'Women', value: '300' }],
-    prize: [
-      { name: 'Men', value: ['12,000', '6,000'] },
-      { name: 'Women', value: ['2,500', '1,250'] }
-    ],
     date: '7<sup>th</sup> March 08:00 to 9<sup>th</sup> March'
   },
   {
     sportName: 'Throwball',
+    venue: 'MIT GROUND',
     sizeType: 'max',
     teamSize: [{ name: 'Women', size: 10 }],
     cost: [{ name: 'Women', value: '3,700' }],
@@ -169,6 +184,7 @@ const populate = () =>
           <div class="sport-detail">
             <div class="sport-name">${c.sportName}</div>
             <div class="sport-date">${c.date}</div>
+            <div class="sport-date">${c.venue}</div>
             ${
               c.teamSize
                 ? `<div class="details">
