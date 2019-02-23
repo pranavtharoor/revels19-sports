@@ -224,7 +224,7 @@ const data = [
   {
     sportName: 'Table Tennis',
     sizeType: 'max',
-    teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
+    teamSize: [{ name: 'Men', size: 4 }, { name: 'Women', size: 1 }],
     cost: [{ name: 'Men', value: 1100 }, { name: 'Women', value: 300 }]
   },
   {
@@ -255,23 +255,23 @@ const data = [
 
 const maxCount = {
   Athletics: {
-    Men: 99999,
-    Women: 99999
+    Men: 16,
+    Women: 16
   },
   Badminton: {
     Men: 8,
     Women: 8
   },
   Basketball: {
-    Men: 99999,
-    Women: 99999
+    Men: 12,
+    Women: 8
   },
   Chess: {
-    Combined: 99999
+    Combined: 32
   },
   Cricket: {
-    Men: 16,
-    Women: 16
+    Men: 12,
+    Women: 12
   },
   'Cross-Country': {
     Men: 99999,
@@ -294,8 +294,8 @@ const maxCount = {
     Women: 12
   },
   'Table Tennis': {
-    Men: 99999,
-    Women: 99999
+    Men: 8,
+    Women: 8
   },
   Volleyball: {
     Men: 10,
@@ -310,7 +310,7 @@ const maxCount = {
     Women: 5
   },
   Throwball: {
-    Men: 8,
+    Men: 6,
     Women: 6
   }
 };

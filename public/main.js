@@ -99,7 +99,7 @@ const data = [
   {
     sportName: 'Table Tennis',
     sizeType: 'max',
-    teamSize: [{ name: 'Men', size: 3 }, { name: 'Women', size: 1 }],
+    teamSize: [{ name: 'Men', size: 4 }, { name: 'Women', size: 1 }],
     cost: [{ name: 'Men', value: '1,100' }, { name: 'Women', value: '300' }],
     prize: [
       { name: 'Men', value: ['10,000', '5,000'] },
