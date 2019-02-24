@@ -39,6 +39,7 @@ body {
 
 .detail {
   font-size: 0.7rem;
+  text-align: center;
   color: black;
   margin-top: 10px;
 }
@@ -529,7 +530,7 @@ a {
 }
 
 @media only screen and (max-width: 450px) {
-  .heading {
+  .heading:not(.detail) {
     font-size: 2rem;
   }
   .sub {
