@@ -37,6 +37,12 @@ body {
   color: #a88436;
 }
 
+.detail {
+  font-size: 0.7rem;
+  color: black;
+  margin-top: 10px;
+}
+
 .brochure {
   text-decoration: none;
   padding: 8px 20px;
