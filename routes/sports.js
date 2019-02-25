@@ -162,6 +162,25 @@ exports.emailStatus = async (req, res) => {
   if (err || !data.success)
     return res.sendError({ err, data }, 'Could not send email');
   res.sendSuccess();
+  [err, resp] = await to(
+    fetch(
+      'https://script.google.com/macros/s/AKfycbzD2X_4m5LMBkIqvQ9ZjBjndAQf_FqZyt2zmX1HamlETz20gl9G/exec',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: searchParams({
+          Sport: data.sport,
+          College: data.college,
+          Type: data.type,
+          'Team Size': data.teamSize,
+          'PE Contact': data.collegePEContact,
+          Name: data.name,
+          Email: data.email,
+          Mobile: data.mobile
+        })
+      }
+    )
+  );
 };
 
 const data = [
@@ -314,3 +333,8 @@ const maxCount = {
     Women: 6
   }
 };
+
+const searchParams = params =>
+  Object.keys(params)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(params[key]))
+    .join('&');
