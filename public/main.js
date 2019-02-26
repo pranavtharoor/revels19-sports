@@ -331,6 +331,11 @@ const regForm = (index, type, cost) => {
             <br />
             <div>
               <label class="container">
+                <input id="mahe-checkbox" type="checkbox" name="mahe" />
+                <span class="checkmark"></span>
+              </label>&nbsp;I am from a MAHE college
+              <br />
+              <label class="container">
                 <input type="checkbox" name="techCollege" required />
                 <span class="checkmark"></span>
               </label>&nbsp;I verify that I am from a technical institute
@@ -399,6 +404,12 @@ function deleteContactInput(el, e) {
 }
 
 function fetchRegister(token) {
+  if (document.querySelector('#mahe-checkbox').checked) {
+    grecaptcha.reset();
+    snackbar('MAHE colleges cannot register now', false);
+    return;
+  }
+
   const formData = [
     ...document.querySelectorAll('.form-inputs input:not([type=checkbox])')
   ]
@@ -461,7 +472,7 @@ function openRegistrationForm(sportIndex, type, cost) {
     form.style.height = '0px';
     form.innerHTML = '';
   });
-  form.style.height = '1020px';
+  form.style.height = '1060px';
   document.querySelectorAll('.card-container')[sportIndex].scrollIntoView({
     behavior: 'smooth',
     block: 'start'
