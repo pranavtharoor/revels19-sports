@@ -139,6 +139,7 @@ exports.emailStatus = async (req, res) => {
     })
   );
   if (err) return res.sendError(err);
+
   [err, resp] = await to(
     fetch('https://mailer.mitrevels.in/getSportsConfirmationEmail', {
       method: 'POST',
@@ -158,10 +159,12 @@ exports.emailStatus = async (req, res) => {
     })
   );
   if (err) return res.sendError(err, 'Could not send email');
-  [err, data] = await to(resp.json());
-  if (err || !data.success)
-    return res.sendError({ err, data }, 'Could not send email');
+  [err, dataResp] = await to(resp.json());
+  if (err || !dataResp.success)
+    return res.sendError({ err, dataResp }, 'Could not send email');
+
   res.sendSuccess();
+
   [err, resp] = await to(
     fetch(
       'https://script.google.com/macros/s/AKfycbzD2X_4m5LMBkIqvQ9ZjBjndAQf_FqZyt2zmX1HamlETz20gl9G/exec',
