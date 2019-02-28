@@ -404,12 +404,6 @@ function deleteContactInput(el, e) {
 }
 
 function fetchRegister(token) {
-  if (document.querySelector('#mahe-checkbox').checked) {
-    grecaptcha.reset();
-    snackbar('MAHE colleges cannot register now', false);
-    return;
-  }
-
   const formData = [
     ...document.querySelectorAll('.form-inputs input:not([type=checkbox])')
   ]
@@ -431,6 +425,15 @@ function fetchRegister(token) {
     ],
     []
   );
+  if (
+    document.querySelector('#mahe-checkbox').checked &&
+    (formData.sport === 'Cricket' ||
+      (formData.sport === 'Football' && formData.type === 'Men'))
+  ) {
+    grecaptcha.reset();
+    snackbar('MAHE colleges cannot register now', false);
+    return;
+  }
   let valid = true;
   [...document.querySelectorAll('input')].forEach(el => {
     if (!el.checkValidity()) {
