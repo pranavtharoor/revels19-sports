@@ -44,6 +44,11 @@ module.exports = (sequelize, DataTypes) => {
     referral: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    banned: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: false
     }
     // bankAccountNumber: {
     //   type: DataTypes.STRING,

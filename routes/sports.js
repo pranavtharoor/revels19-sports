@@ -165,25 +165,26 @@ exports.emailStatus = async (req, res) => {
 
   res.sendSuccess();
 
-  [err, resp] = await to(
-    fetch(
-      'https://script.google.com/macros/s/AKfycbzD2X_4m5LMBkIqvQ9ZjBjndAQf_FqZyt2zmX1HamlETz20gl9G/exec',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: searchParams({
-          Sport: data.sport,
-          College: data.college,
-          Type: data.type,
-          'Team Size': data.teamSize,
-          'PE Contact': data.collegePEContact,
-          Name: data.name,
-          Email: data.email,
-          Mobile: data.mobile
-        })
-      }
+  [err, data] = await to(
+    sequelize.query(
+      `select sports.sport as Sport, sports.banned as Banned, sports.college as College, sports.type as Category, sports.teamSize as 'Team Size', sports.collegePEContact as 'PE Contact', sports.name as Name, sports.email as Email, sports.mobile as Mobile, paytm.amount_paid as 'Amount Paid' from sports join paytm on  sports.order_id = paytm.order_id where sports.order_id = '${
+        req.params.order_id
+      }'`,
+      { type: sequelize.QueryTypes.SELECT }
     )
   );
+
+  if (data.length > 0)
+    [err, resp] = await to(
+      fetch(
+        'https://script.google.com/macros/s/AKfycbzD2X_4m5LMBkIqvQ9ZjBjndAQf_FqZyt2zmX1HamlETz20gl9G/exec',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: searchParams(data[0])
+        }
+      )
+    );
 };
 
 const data = [
