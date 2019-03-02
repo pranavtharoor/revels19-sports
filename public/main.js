@@ -430,9 +430,9 @@ function fetchRegister(token) {
     (formData.sport === 'Cricket' ||
       (formData.sport === 'Football' && formData.type === 'Men'))
   ) {
-    grecaptcha.reset();
-    snackbar('MAHE colleges cannot register now', false);
-    return;
+    // grecaptcha.reset();
+    // snackbar('MAHE colleges cannot register now', false);
+    // return;
   }
   let valid = true;
   [...document.querySelectorAll('input')].forEach(el => {
