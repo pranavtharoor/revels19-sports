@@ -42,15 +42,15 @@ const data = [
     prize: [{ name: 'Combined', value: ['10,000', '5,000'] }],
     date: '6<sup>th</sup> March 17:00 to 8<sup>th</sup> March'
   },
-  // {
-  //   sportName: 'Cricket',
-  //   venue: 'MIT Cricket/Athletics ground',
-  //   sizeType: 'max',
-  //   teamSize: [{ name: 'Men', size: 18 }],
-  //   cost: [{ name: 'Men', value: '6,600' }],
-  //   prize: [{ name: 'Men', value: ['36,000', '18,000'] }],
-  //   date: '4<sup>th</sup> March 09:00 to 9<sup>th</sup> March'
-  // },
+  {
+    sportName: 'Cricket',
+    venue: 'MIT Cricket/Athletics ground',
+    sizeType: 'max',
+    teamSize: [{ name: 'Men', size: 18 }],
+    cost: [{ name: 'Men', value: '6,600' }],
+    prize: [{ name: 'Men', value: ['36,000', '18,000'] }],
+    date: '4<sup>th</sup> March 09:00 to 9<sup>th</sup> March'
+  },
   {
     sportName: 'Cross-Country',
     venue: 'MIT Athletic ground',

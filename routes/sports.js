@@ -210,12 +210,12 @@ const data = [
     teamSize: [{ name: 'Combined', size: 5 }],
     cost: [{ name: 'Combined', value: 1800 }]
   },
-  // {
-  //   sportName: 'Cricket',
-  //   sizeType: 'max',
-  //   teamSize: [{ name: 'Men', size: 18 }],
-  //   cost: [{ name: 'Men', value: 6600 }]
-  // },
+  {
+    sportName: 'Cricket',
+    sizeType: 'max',
+    teamSize: [{ name: 'Men', size: 18 }],
+    cost: [{ name: 'Men', value: 6600 }]
+  },
   {
     sportName: 'Cross-Country',
     sizeType: 'exact',
