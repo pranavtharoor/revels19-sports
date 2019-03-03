@@ -426,13 +426,14 @@ function fetchRegister(token) {
     []
   );
   if (
-    document.querySelector('#mahe-checkbox').checked &&
-    (formData.sport === 'Cricket' ||
-      (formData.sport === 'Football' && formData.type === 'Men'))
+    // document.querySelector('#mahe-checkbox').checked &&
+    formData.sport === 'Cricket' ||
+    (formData.sport === 'Hockey' && formData.type === 'Men') ||
+    (formData.sport === 'Football' && formData.type === 'Men')
   ) {
-    // grecaptcha.reset();
-    // snackbar('MAHE colleges cannot register now', false);
-    // return;
+    grecaptcha.reset();
+    snackbar('Registrations full for this sport', false);
+    return;
   }
   let valid = true;
   [...document.querySelectorAll('input')].forEach(el => {
