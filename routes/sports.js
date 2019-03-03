@@ -31,6 +31,17 @@ exports.register = async (req, res) => {
     return res.sendError({ err, captchaData }, 'Invalid captcha');
   const { contact, ...details } = req.body;
   const order_id = await uuidv1();
+
+  if (
+    // document.querySelector('#mahe-checkbox').checked &&
+    req.body.sport === 'Cricket' ||
+    (req.body.sport === 'Hockey' && req.body.type === 'Men') ||
+    (req.body.sport === 'Football' && req.body.type === 'Men')
+  ) {
+    res.sendError('Registrations full');
+    return;
+  }
+
   const sportItem = data.filter(sport => sport.sportName === req.body.sport)[0];
   if (!sportItem) return res.sendError(null, 'Sport not found', 404);
   const cost = sportItem.cost.filter(cost => cost.name === req.body.type)[0];
