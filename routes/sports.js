@@ -253,7 +253,9 @@ const data = [
   },
   {
     sportName: 'Swimming',
-    cost: [{ name: 'Men', value: 4800 }, { name: 'Women', value: 4000 }]
+    sizeType: 'max',
+    teamSize: [{ name: 'Men', size: 1 }, { name: 'Women', size: 1 }],
+    cost: [{ name: 'Men', value: 500 }, { name: 'Women', value: 500 }]
   },
   {
     sportName: 'Table Tennis',

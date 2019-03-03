@@ -120,7 +120,9 @@ const data = [
   {
     sportName: 'Swimming',
     venue: 'MIT Swimming Pool',
-    cost: [{ name: 'Men', value: '4,800' }, { name: 'Women', value: '4,000' }],
+    sizeType: 'max',
+    teamSize: [{ name: 'Men', size: 1 }, { name: 'Women', size: 1 }],
+    cost: [{ name: 'Men', value: '500' }, { name: 'Women', value: '500' }],
     prize: [
       { name: 'Men', value: ['24,000', '12,000'] },
       { name: 'Women', value: ['12,000', '6,000'] }
