@@ -429,8 +429,9 @@ function fetchRegister(token) {
   );
   if (
     // document.querySelector('#mahe-checkbox').checked &&
-    formData.sport === 'Cricket' ||
-    (formData.sport === 'Hockey' && formData.type === 'Men') //||
+    // formData.sport === 'Cricket' ||
+    formData.sport !== 'Swimming' //||
+    // (formData.sport === 'Hockey' && formData.type === 'Men') //||
     // (formData.sport === 'Football' && formData.type === 'Men')
   ) {
     grecaptcha.reset();

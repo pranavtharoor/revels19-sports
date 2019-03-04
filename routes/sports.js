@@ -34,8 +34,9 @@ exports.register = async (req, res) => {
 
   if (
     // document.querySelector('#mahe-checkbox').checked &&
-    req.body.sport === 'Cricket' ||
-    (req.body.sport === 'Hockey' && req.body.type === 'Men') //||
+    // req.body.sport === 'Cricket' ||
+    req.body.sport !== 'Swimming' //||
+    // (req.body.sport === 'Hockey' && req.body.type === 'Men') //||
     // (req.body.sport === 'Football' && req.body.type === 'Men')
   ) {
     res.sendError('Registrations full');
