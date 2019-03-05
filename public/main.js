@@ -434,6 +434,7 @@ function fetchRegister(token) {
       formData.sport === 'Swimming' ||
       formData.sport === 'Chess' ||
       (formData.sport === 'Basketball' && formData.type === 'Men') ||
+      (formData.sport === 'Tennis' && formData.type === 'Women') ||
       (formData.sport === 'Table Tennis' && formData.type === 'Men') ||
       (formData.sport === 'Badminton' && formData.type === 'Women')
     ) //||

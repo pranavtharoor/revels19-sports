@@ -42,6 +42,7 @@ exports.register = async (req, res) => {
       req.body.sport === 'Swimming' ||
       req.body.sport === 'Chess' ||
       (req.body.sport === 'Basketball' && req.body.type === 'Men') ||
+      (req.body.sport === 'Tennis' && req.body.type === 'Women') ||
       (req.body.sport === 'Table Tennis' && req.body.type === 'Men') ||
       (req.body.sport === 'Badminton' && req.body.type === 'Women')
     )
