@@ -35,9 +35,16 @@ exports.register = async (req, res) => {
   if (
     // document.querySelector('#mahe-checkbox').checked &&
     // req.body.sport === 'Cricket' ||
-    req.body.sport !== 'Swimming' //||
+    // req.body.sport !== 'Swimming' //||
     // (req.body.sport === 'Hockey' && req.body.type === 'Men') //||
     // (req.body.sport === 'Football' && req.body.type === 'Men')
+    !(
+      req.body.sport === 'Swimming' ||
+      req.body.sport === 'Chess' ||
+      (req.body.sport === 'Basketball' && req.body.type === 'Men') ||
+      (req.body.sport === 'Table Tennis' && req.body.type === 'Men') ||
+      (req.body.sport === 'Badminton' && req.body.type === 'Women')
+    )
   ) {
     res.sendError('Registrations full');
     return;
