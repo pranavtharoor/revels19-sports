@@ -54,7 +54,7 @@ exports.register = async (req, res) => {
         req.body.referral === 'pes123')
     )
   ) {
-    res.sendError('Registrations full');
+    res.sendError(null, 'Registrations full');
     return;
   }
 
