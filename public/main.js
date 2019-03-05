@@ -430,14 +430,13 @@ function fetchRegister(token) {
   if (
     // document.querySelector('#mahe-checkbox').checked &&
     // formData.sport === 'Cricket' ||
-    !(
-      formData.sport === 'Swimming' ||
-      formData.sport === 'Chess' ||
-      (formData.sport === 'Basketball' && formData.type === 'Men') ||
-      (formData.sport === 'Tennis' && formData.type === 'Women') ||
-      (formData.sport === 'Table Tennis' && formData.type === 'Men') ||
-      (formData.sport === 'Badminton' && formData.type === 'Women')
-    ) //||
+    !// formData.sport === 'Swimming' ||
+    (formData.sport === 'Athletics') //||
+    // formData.sport === 'Chess' ||
+    // (formData.sport === 'Basketball' && formData.type === 'Men') ||
+    // (formData.sport === 'Tennis' && formData.type === 'Women') ||
+    // (formData.sport === 'Table Tennis' && formData.type === 'Men') ||
+    // (formData.sport === 'Badminton' && formData.type === 'Women') //||
     // (formData.sport === 'Hockey' && formData.type === 'Men') //||
     // (formData.sport === 'Football' && formData.type === 'Men')
   ) {
